@@ -34,6 +34,30 @@
 				    </execution>
 				</executions>
 		    </plugin>
+		    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>regex-property</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>regex-property</goal>
+            </goals>
+            <configuration>
+              <name>url</name>
+              <value>${altDeploymentRepository}</value>
+              <regex>^(.*)::(.*)::(.*)$</regex>
+              <replacement>$3</replacement>
+              <failIfNoMatch>false</failIfNoMatch>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      
 
 		    <plugin>
     		<groupId>org.apache.maven.plugins</groupId>
@@ -95,26 +119,7 @@
    
     
 </plugin>
-<plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.7</version>
-        <executions>
-          <execution>
-            <id>regex-property</id>
-            <goals>
-              <goal>regex-property</goal>
-            </goals>
-            <configuration>
-              <name>url</name>
-              <value>${altDeploymentRepository}</value>
-              <regex>^(.*)::(.*)::(.*)$</regex>
-              <replacement>$3</replacement>
-              <failIfNoMatch>true</failIfNoMatch>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+
 
 
 
