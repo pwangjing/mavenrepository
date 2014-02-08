@@ -18,6 +18,8 @@
 		<module>parent</module>
                 <module>executable-jar</module>
                 <module>jpa</module>
+                <module>restful-service</module>
+                <module>codequality</module>
 	</modules>
 
 	<properties>
